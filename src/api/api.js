@@ -17,7 +17,7 @@ export const ticketsAPI = {
     });
   },
   updateTicket(ticketID, newData) {
-    return instance.put(`/items/${ticketID}`, newData);
+    return instance.put(`/items/${ticketID}`, { id: ticketID, ...newData });
   },
   createTicket(data) {
     return instance.post(`/items`, data).then((response) => {

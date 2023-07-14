@@ -1,14 +1,23 @@
 import styles from "./index.module.scss";
+import { MyForm } from "../Form/Form";
+import Popup from "reactjs-popup";
 import classNames from "classnames/bind";
+import { ticketsAPI } from "../../api/api";
 
 export const Ticket = ({
+  id,
   subject,
   priority,
   status,
   description,
   style,
-  onEdit,
+  setUpdates,
 }) => {
+  const updateTicket = async (values) => {
+    ticketsAPI.updateTicket(id, values);
+    setUpdates((prev) => prev + 1);
+  };
+
   let priorityClassname = classNames(styles.priority, {
     [styles.low]: priority === "low",
     [styles.medium]: priority === "medium",
@@ -40,9 +49,19 @@ export const Ticket = ({
         <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.buttons}>
-        <button className={styles.editBtn} onClick={onEdit}>
-          Edit
-        </button>
+        <Popup
+          trigger={<button className={styles.editBtn}>Edit</button>}
+          position="bottom right"
+        >
+          {(close) => (
+            <div className={styles.Popup}>
+              <MyForm handleSubmit={updateTicket} />
+              <a className="close" onClick={close}>
+                &times;
+              </a>
+            </div>
+          )}
+        </Popup>
       </div>
     </div>
   );
