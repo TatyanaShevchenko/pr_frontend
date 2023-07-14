@@ -1,0 +1,80 @@
+@import "../../styles/helpers.scss";
+
+.ticket {
+  padding: 0 $large-gap;
+  background-color: $light-grey;
+  border: 1px solid $medium-grey;
+  border-radius: $border-rad;
+  height: $fixed-height;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  gap: $medium-gap;
+  grid-template-columns: 2fr 1fr 3fr 10fr 2fr;
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: $small-gap;
+  }
+  .title {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .subject {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.editBtn {
+  background-color: $yellow;
+  border-color: $yellow-hover;
+  padding: $small-gap;
+  min-width: 120px;
+  text-align: center;
+  border-radius: $border-rad;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: $yellow-hover;
+  }
+}
+
+.priority {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: $small-gap;
+    height: $small-gap;
+    border-radius: $small-gap;
+    left: $before;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.low {
+    &::before {
+  background-color: $green;}
+}
+.medium {
+    &::before {
+  background-color: $yellow;}
+}
+.high{
+        &::before {
+      background-color: $red;}
+}
+
+.todo{
+    color: $blue;
+}
+
+.inProgress{
+    color:$yellow;
+}
+
+.done{
+    color: $green;
+}

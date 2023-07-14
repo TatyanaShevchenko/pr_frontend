@@ -1,0 +1,24 @@
+@import "./styles/helpers.scss";
+
+.app {
+  text-align: left;
+  font-family: "Manrope", sans-serif;
+}
+
+.addTicket {
+  padding: $small-gap;
+}
+
+.addTicketBtn {
+  background-color: $green;
+  border-color: $green-hover;
+  padding: $small-gap;
+  min-width: 120px;
+  text-align: center;
+  border-radius: $border-rad;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: $green-hover;
+  }
+}
