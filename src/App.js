@@ -2,12 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { Ticket } from "./components/Ticket/Ticket";
 import { VirtualisedList } from "./components/VirtualisedList/VirtualisedList";
 import { MyForm } from "./components/Form/Form";
+import { Button } from "./components/Button/Button";
 import Popup from "reactjs-popup";
-import { Formik, Field, Form } from "formik";
 
 import "reactjs-popup/dist/index.css";
 import { ticketsAPI } from "./api/api";
 import styles from "./index.module.scss";
+
 function App() {
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
   const [tickets, setTickets] = useState(null);
@@ -29,7 +30,7 @@ function App() {
       <div className={styles.addTicket}>
         <Popup
           trigger={
-            <button className={styles.addTicketBtn}>Add new ticket</button>
+            <Button classname={styles.addTicketBtn} text="Add new ticket" />
           }
           position="right top"
         >

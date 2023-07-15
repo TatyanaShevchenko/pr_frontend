@@ -1,8 +1,10 @@
 import styles from "./index.module.scss";
 import { MyForm } from "../Form/Form";
+import { Button } from "../Button/Button";
 import Popup from "reactjs-popup";
 import classNames from "classnames/bind";
 import { ticketsAPI } from "../../api/api";
+import React, { useRef } from "react";
 
 export const Ticket = ({
   id,
@@ -13,25 +15,29 @@ export const Ticket = ({
   style,
   setUpdates,
 }) => {
+  const ref = useRef();
   const updateTicket = async (values) => {
     ticketsAPI.updateTicket(id, values);
     setUpdates((prev) => prev + 1);
   };
 
-  let priorityClassname = classNames(styles.priority, {
+  const ticketClassname = classNames(styles.ticket, {
+    [styles.even]: id % 2 === 0,
+  });
+  const priorityClassname = classNames(styles.priority, {
     [styles.low]: priority === "low",
     [styles.medium]: priority === "medium",
     [styles.high]: priority === "high",
   });
 
-  let statusClassname = classNames(styles.status, {
+  const statusClassname = classNames(styles.status, {
     [styles.todo]: status === "to do",
     [styles.inProgress]: status === "in progress",
     [styles.done]: status === "done",
   });
 
   return (
-    <div className={styles.ticket} style={style}>
+    <div className={ticketClassname} style={style}>
       <div className={styles.column}>
         <p className={styles.title}>subject</p>
         <p className={styles.subject}>{subject}</p>
@@ -50,7 +56,7 @@ export const Ticket = ({
       </div>
       <div className={styles.buttons}>
         <Popup
-          trigger={<button className={styles.editBtn}>Edit</button>}
+          trigger={<Button classname={styles.editBtn} text="Edit" />}
           position="bottom right"
         >
           {(close) => (

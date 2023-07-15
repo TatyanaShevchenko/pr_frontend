@@ -10,16 +10,13 @@
 }
 
 .addTicketBtn {
-  background-color: $green;
-  border-color: $green-hover;
-  padding: $small-gap;
-  min-width: 120px;
-  text-align: center;
-  border-radius: $border-rad;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  &:hover {
-    background-color: $green-hover;
+  background-color: $melon;
+
+  &:after {
+    background-color: $melon;
+  }
+  &:before {
+    background-color: darken($melon, 25%);
   }
 }
 
