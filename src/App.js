@@ -37,7 +37,7 @@ function App() {
           {(close) => (
             <div className={styles.Popup}>
               <MyForm handleSubmit={createNewTicket} />
-              <a className="close" onClick={close}>
+              <a className={styles.close} onClick={close}>
                 &times;
               </a>
             </div>
