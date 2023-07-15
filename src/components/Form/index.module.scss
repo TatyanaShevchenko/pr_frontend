@@ -1,0 +1,25 @@
+@import "../../styles/helpers.scss";
+
+.label {
+  font-family: "Manrope", sans-serif;
+  color: $dark-grey;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.field {
+  margin-top: $xs-gap;
+  margin-bottom: $small-gap;
+  padding: $xs-gap;
+}
+
+.button {
+  background-color: $melon;
+
+  &:after {
+    background-color: $melon;
+  }
+  &:before {
+    background-color: darken($melon, 25%);
+  }
+}

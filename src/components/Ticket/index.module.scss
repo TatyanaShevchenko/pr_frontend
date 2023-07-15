@@ -77,3 +77,11 @@
 .done {
   color: $green;
 }
+.popup {
+  display: flex;
+  padding: $small-gap;
+}
+
+.close {
+  cursor: pointer;
+}

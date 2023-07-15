@@ -1,4 +1,7 @@
 import { Formik, Field, Form } from "formik";
+import styles from "./index.module.scss";
+import external from "../Button/index.module.scss";
+import classNames from "classnames/bind";
 
 export const MyForm = ({ handleSubmit }) => {
   return (
@@ -11,19 +14,56 @@ export const MyForm = ({ handleSubmit }) => {
       }}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label htmlFor="subject">subject</label>
-        <Field id="subject" name="subject" placeholder="subject" />
+      <Form className={styles.form}>
+        <label htmlFor="subject" className={styles.label}>
+          subject*
+        </label>
+        <Field
+          required
+          id="subject"
+          className={styles.field}
+          name="subject"
+          placeholder="subject"
+        />
 
-        <label htmlFor="priority">priority</label>
-        <Field id="priority" name="priority" placeholder="medium" />
+        <label htmlFor="priority" className={styles.label}>
+          priority*
+        </label>
+        <Field
+          required
+          id="priority"
+          className={styles.field}
+          name="priority"
+          placeholder="medium"
+        />
 
-        <label htmlFor="status">status</label>
-        <Field id="status" name="status" placeholder="to do" />
+        <label htmlFor="status" className={styles.label}>
+          status*
+        </label>
+        <Field
+          required
+          id="status"
+          className={styles.field}
+          name="status"
+          placeholder="to do"
+        />
 
-        <label htmlFor="description">description</label>
-        <Field id="description" name="description" placeholder="description" />
-        <button type="submit">Submit</button>
+        <label htmlFor="description" className={styles.label}>
+          description*
+        </label>
+        <Field
+          required
+          id="description"
+          className={styles.field}
+          name="description"
+          placeholder="description"
+        />
+        <button
+          type="submit"
+          className={classNames(styles.button, external.button)}
+        >
+          Submit
+        </button>
       </Form>
     </Formik>
   );

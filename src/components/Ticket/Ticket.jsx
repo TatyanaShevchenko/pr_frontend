@@ -60,9 +60,9 @@ export const Ticket = ({
           position="bottom right"
         >
           {(close) => (
-            <div className={styles.Popup}>
+            <div className={styles.popup}>
               <MyForm handleSubmit={updateTicket} />
-              <a className="close" onClick={close}>
+              <a onClick={close} className={styles.close}>
                 &times;
               </a>
             </div>
