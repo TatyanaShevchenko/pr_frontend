@@ -1,7 +1,8 @@
 import { Formik, Field, Form } from "formik";
+import classNames from "classnames/bind";
+
 import styles from "./index.module.scss";
 import external from "../Button/index.module.scss";
-import classNames from "classnames/bind";
 
 export const MyForm = ({ handleSubmit }) => {
   return (

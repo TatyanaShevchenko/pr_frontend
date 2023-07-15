@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
+import Popup from "reactjs-popup";
+
 import { Ticket } from "./components/Ticket/Ticket";
 import { VirtualisedList } from "./components/VirtualisedList/VirtualisedList";
 import { MyForm } from "./components/Form/Form";
 import { Button } from "./components/Button/Button";
-import Popup from "reactjs-popup";
 
-import "reactjs-popup/dist/index.css";
 import { ticketsAPI } from "./api/api";
 import styles from "./index.module.scss";
+import "reactjs-popup/dist/index.css";
 
 function App() {
   const windowSize = useRef([window.innerWidth, window.innerHeight]);

@@ -1,10 +1,11 @@
+import React, { useRef } from "react";
+import Popup from "reactjs-popup";
+import classNames from "classnames/bind";
+
 import styles from "./index.module.scss";
 import { MyForm } from "../Form/Form";
 import { Button } from "../Button/Button";
-import Popup from "reactjs-popup";
-import classNames from "classnames/bind";
 import { ticketsAPI } from "../../api/api";
-import React, { useRef } from "react";
 
 export const Ticket = ({
   id,
